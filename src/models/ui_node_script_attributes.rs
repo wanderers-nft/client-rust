@@ -25,9 +25,6 @@ pub struct UiNodeScriptAttributes {
     /// The script's integrity hash
     #[serde(rename = "integrity")]
     pub integrity: String,
-    /// NodeType represents this node's types. It is a mirror of `node.type` and is primarily used to allow compatibility with OpenAPI 3.0. In this struct it technically always is \"script\". text Text input Input img Image a Anchor script Script
-    #[serde(rename = "node_type")]
-    pub node_type: NodeTypeEnum,
     /// Nonce for CSP  A nonce you may want to use to improve your Content Security Policy. You do not have to use this value but if you want to improve your CSP policies you may use it. You can also choose to use your own nonce value!
     #[serde(rename = "nonce")]
     pub nonce: String,
@@ -43,13 +40,12 @@ pub struct UiNodeScriptAttributes {
 }
 
 impl UiNodeScriptAttributes {
-    pub fn new(r#async: bool, crossorigin: String, id: String, integrity: String, node_type: NodeTypeEnum, nonce: String, referrerpolicy: String, src: String, r#type: String) -> UiNodeScriptAttributes {
+    pub fn new(r#async: bool, crossorigin: String, id: String, integrity: String, nonce: String, referrerpolicy: String, src: String, r#type: String) -> UiNodeScriptAttributes {
         UiNodeScriptAttributes {
             r#async,
             crossorigin,
             id,
             integrity,
-            node_type,
             nonce,
             referrerpolicy,
             src,

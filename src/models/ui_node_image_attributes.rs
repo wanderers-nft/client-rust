@@ -19,9 +19,6 @@ pub struct UiNodeImageAttributes {
     /// A unique identifier
     #[serde(rename = "id")]
     pub id: String,
-    /// NodeType represents this node's types. It is a mirror of `node.type` and is primarily used to allow compatibility with OpenAPI 3.0.  In this struct it technically always is \"img\". text Text input Input img Image a Anchor script Script
-    #[serde(rename = "node_type")]
-    pub node_type: NodeTypeEnum,
     /// The image's source URL.  format: uri
     #[serde(rename = "src")]
     pub src: String,
@@ -31,11 +28,10 @@ pub struct UiNodeImageAttributes {
 }
 
 impl UiNodeImageAttributes {
-    pub fn new(height: i64, id: String, node_type: NodeTypeEnum, src: String, width: i64) -> UiNodeImageAttributes {
+    pub fn new(height: i64, id: String, src: String, width: i64) -> UiNodeImageAttributes {
         UiNodeImageAttributes {
             height,
             id,
-            node_type,
             src,
             width,
         }

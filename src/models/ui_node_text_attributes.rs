@@ -16,18 +16,14 @@ pub struct UiNodeTextAttributes {
     /// A unique identifier
     #[serde(rename = "id")]
     pub id: String,
-    /// NodeType represents this node's types. It is a mirror of `node.type` and is primarily used to allow compatibility with OpenAPI 3.0.  In this struct it technically always is \"text\". text Text input Input img Image a Anchor script Script
-    #[serde(rename = "node_type")]
-    pub node_type: NodeTypeEnum,
     #[serde(rename = "text")]
     pub text: Box<models::UiText>,
 }
 
 impl UiNodeTextAttributes {
-    pub fn new(id: String, node_type: NodeTypeEnum, text: models::UiText) -> UiNodeTextAttributes {
+    pub fn new(id: String, text: models::UiText) -> UiNodeTextAttributes {
         UiNodeTextAttributes {
             id,
-            node_type,
             text: Box::new(text),
         }
     }
